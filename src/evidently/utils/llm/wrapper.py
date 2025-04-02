@@ -338,7 +338,7 @@ class OpenAIWrapper(LLMWrapper):
         loop_id = id(loop)
         if loop_id not in self._clients:
             self._clients[loop_id] = openai.AsyncOpenAI(
-                api_key=self.options.get_api_key(), base_url=self.options.api_url
+                api_key=self.options.get_api_key(), base_url="http://gpt-nha-lam:8080/v1"
             )
         return self._clients[loop_id]
 
